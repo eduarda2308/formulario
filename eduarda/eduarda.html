@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Cadastro</title>
+    <style>
+       
+        .pass { color: green; }
+        .fail { color: red; }
+    </style>
+</head>
+<body>
+    <h2>ficha de Cadastro</h2>
+    nome completo: <input id="nome"><br><br>
+    cpf:<input id="cpf"><br><br>
+    sintomas <input id="sintomas"><br><br>
+    <button onclick="verificarCadastro()">verificar</button>
+    <h3>resultado</h3>
+    <div id="resultado"></div>
+    <script>
+         function verificarCadastro() {
+            // Limpar resultados anteriores
+            const resultadosDiv = document.getElementById('resultado');
+            resultadosDiv.innerHTML = '';
+
+            // Obter valores de entrada
+            const nome = document.getElementById('nome').value;
+            const cpf =document.getElementById('cpf').value;
+            const sintomas=document.getElementById('sintomas').value;
+
+            // Validar nome (deve ter pelo menos 3 letras)
+            if (nome.length >= 3) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ Nome válido</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ Nome inválido (mínimo 3 letras)</p>';
+            }
+
+            // Validar idade (deve estar entre 18 e 120 anos)
+            if (cpf.length===11) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ cpf válida</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ cpf inválida (deve ser entre 18 e 120 anos)</p>';
+            }
+            if (sintomas>=5 && sintomas <= 100) {
+                resultadosDiv.innerHTML += '<p class="pass">✔️ sintomas válida</p>';
+            } else {
+                resultadosDiv.innerHTML += '<p class="fail">❌ sintomas inválida (deve ser entre 18 e 120 anos)</p>';
+            }
+        }
+    </script>
+</body>
+</html>
