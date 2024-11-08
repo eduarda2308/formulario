@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Cadastro</title>
+ 
+</head>
+<body>
+    <h2>ficha de Cadastro</h2>
+    nome completo: <input id="nome"><br><br>
+    cpf:<input id="cpf" maxlength="11"><br><br>
+    sintomas <input id="sintomas"><br><br>
+    <button onclick="verificarCadastro()">verificar</button>
+    <div id="resultado"></div>
+    <script>
+         function verificarCadastro() {
+            // Limpar resultados anteriores
+            const resultadosDiv = document.getElementById('resultado');
+            
+
+            // Obter valores de entrada
+            const nome = document.getElementById('nome').value;
+            const cpf =document.getElementById('cpf').value;
+            const sintomas=document.getElementById('sintomas').value;
+
+            // Validar nome (deve ter pelo menos 3 letras)
+            if (nome.length >=3 && cpf.length===11 && !isNaN(cpf) && sintomas.length>=5 && sintomas.length <=100) {
+              sessionStorage.setItem('nome',nome);
+             sessionStorage.setItem('cpf',cpf);
+               sessionStorage.setItem('sintomas',sintomas);
+                window.location.href='https://www.buser.com.br/?utm_source=google&utm_medium=cpc&utm_campaign=%5BInstitucional%5D-%5Bbuser%5D_%5Bbuser%5D---NU_636591187633&utm_term=buser&gad_source=1&gclid=Cj0KCQiAire5BhCNARIsAM53K1hPZoopA6JBXaF518NISWqhkk4prPggpgfHSIVL4SJTXed3Oq7wDrQaAjk3EALw_wcB'
+            } else {
+               alert('Acesso negado.')
+            }
+
+  }
+    </script>
+</body>
+</html>
